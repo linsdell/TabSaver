@@ -7,3 +7,7 @@ chrome.runtime.onMessage.addListener(
     }
   }
 );
+
+window.onload = function () {
+   document.getElementById('tabs').innerHTML = '<ol><ul> <input type="checkbox" name="tab" value="tab">html data</ul></ol>';
+}
