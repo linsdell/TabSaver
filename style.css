@@ -1,0 +1,20 @@
+button {
+  background-color: #4CAF50;
+  color: green;
+  padding: 15px 32px;
+  color: white;
+  font-style: bold;
+  outline:none;
+  border: none;
+  border-radius: 15px;
+}
+body{
+  width: 200px;
+  background-color: #7a7a7a;
+}
+
+#add{
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
