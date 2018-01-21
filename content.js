@@ -9,10 +9,11 @@ chrome.runtime.onMessage.addListener(
 );
 
 window.onload = function () {
-  document.getElementById('tabs').innerHTML = '';
+  document.getElementById('tabs').innerHTML = '<ol>';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
-      document.getElementById('tabs').innerHTML += '<ol><ul> <input type="checkbox" name="tab" value="tab">' + tabs[i].title + '</ul></ol>';
+      document.getElementById('tabs').innerHTML += '<ul> <input type="checkbox" name="tab" value="tab">' + tabs[i].title + '</ul>';
       }
   });
+  document.getElementById('tabs').innerHTML = '</ol>';
 }
