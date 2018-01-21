@@ -18,6 +18,8 @@ window.onload = function () {
   document.getElementById('tabs').innerHTML = '</ol>';
 }
 
-document.getElementById("tabSelection").onsubmit = function() {
-  alert("The form was submitted");
+
+document.getElementById("groupButton").onclick = function(){
+  //alert("The form was submitted");
+
 };
