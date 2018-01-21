@@ -12,8 +12,12 @@ window.onload = function () {
   document.getElementById('tabs').innerHTML = '<ol>';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
-      document.getElementById('tabs').innerHTML += '<ul> <input type="checkbox" name="tab" value="tab">' + tabs[i].title + '</ul>';
+      document.getElementById('tabs').innerHTML += '<ul> <input type="checkbox" name="' + tabs[i].title +'" value="tab">' + tabs[i].title + '</ul>';
       }
   });
   document.getElementById('tabs').innerHTML = '</ol>';
 }
+
+document.getElementById("tabSelection").onsubmit = function() {
+  alert("The form was submitted");
+};
