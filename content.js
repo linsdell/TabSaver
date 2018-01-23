@@ -19,7 +19,7 @@ window.onload = function () {
 }
 
 
-document.getElementById("groupButton").onclick = function(){
-  //alert("The form was submitted");
+document.getElementById('groupButton').onclick = function(){
+  alert("The form was submitted");
 
 };
