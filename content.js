@@ -9,25 +9,25 @@ chrome.runtime.onMessage.addListener(
 );
 
 window.onload = function () {
-  alert("The thing works was clicked.");
-  document.getElementById('tabs').innerHTML = '<ol>';
+
+  //document.getElementById('tabs').innerHTML = '<ul style="list-style-type: none" id="tabList">';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
-      document.getElementById('tabs').innerHTML += '<ul> <input type="checkbox" name="' + tabs[i].title +'" value="tab">' + tabs[i].title + '</ul>';
+      document.getElementById('tabs').innerHTML += '<li> <input class="tabSelect" type="checkbox" name="' + tabs[i].title +'" value="tab">' + tabs[i].title + '</li>';
       }
   });
-  document.getElementById('tabs').innerHTML = '</ol>';
+  document.getElementById('tabs').innerHTML = '</ul>';
 }
-
-
-//document.getElementById('groupButton').onclick = function(){
-  //alert("The form was submitted");
-
-//};
 
 $(document).ready(function(){
     $("#groupButton").click(function(){
-        alert("The paragraph was clicked.");
-
+    var list = $(".tabSelect");
+    var i = 0;
+     //for(box in list){
+        //if(box.checked){
+          document.getElementById('savedTabs').innerHTML += '<p> added ' +  list + ' </p>';
+        //  i++;
+       //}
+    //}
     });
 });
