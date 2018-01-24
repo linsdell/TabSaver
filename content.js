@@ -10,24 +10,21 @@ chrome.runtime.onMessage.addListener(
 
 window.onload = function () {
 
-  document.getElementById('tabs').innerHTML = '<ul style="list-style-type: none" id="tabList">';
+  //document.getElementById('tabs').innerHTML = '';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
-      document.getElementById('tabs').innerHTML += '<li> <input class="tabSelect" type="checkbox" name="' + tabs[i].title +'" value="tab">' + tabs[i].title + '</li>';
+          document.getElementById('tabList').innerHTML += '<li> <input class="tabSelect" type="checkbox" value="' + tabs[i].title + '">' + tabs[i].title + '</li>';
       }
   });
-  document.getElementById('tabs').innerHTML = '</ul>';
 }
 
 $(document).ready(function(){
     $("#groupButton").click(function(){
     var list = $(".tabSelect");
-    var i = 0;
-     //for(box in list){
-        //if(box.checked){
-          document.getElementById('savedTabs').innerHTML += '<p> added ' +  list + ' </p>';
-        //  i++;
-       //}
-    //}
+     for(i =0; i<list.length; i++){
+        if(list[i].checked){
+          document.getElementById('savedTabs').innerHTML += '<p> added ' +  list[i].checked + " " + i + ' </p>';
+       }
+    }
     });
 });
