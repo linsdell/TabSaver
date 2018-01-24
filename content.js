@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(
 
 window.onload = function () {
 
-  //document.getElementById('tabs').innerHTML = '<ul style="list-style-type: none" id="tabList">';
+  document.getElementById('tabs').innerHTML = '<ul style="list-style-type: none" id="tabList">';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
       document.getElementById('tabs').innerHTML += '<li> <input class="tabSelect" type="checkbox" name="' + tabs[i].title +'" value="tab">' + tabs[i].title + '</li>';
