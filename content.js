@@ -9,6 +9,7 @@ chrome.runtime.onMessage.addListener(
 );
 
 window.onload = function () {
+  alert("The thing works was clicked.");
   document.getElementById('tabs').innerHTML = '<ol>';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
@@ -19,7 +20,14 @@ window.onload = function () {
 }
 
 
-document.getElementById('groupButton').onclick = function(){
-  alert("The form was submitted");
+//document.getElementById('groupButton').onclick = function(){
+  //alert("The form was submitted");
 
-};
+//};
+
+$(document).ready(function(){
+    $("#groupButton").click(function(){
+        alert("The paragraph was clicked.");
+
+    });
+});
