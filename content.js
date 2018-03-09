@@ -27,6 +27,7 @@ window.onload = function () {
 
 $(document).ready(function(){
     $("#groupButton").click(function(){
+    var groupName = document.getElementById('groupNameInput').value
     var list = $(".tabSelect");
     var selectedList = [];
      for(i =0; i<list.length; i++){
@@ -35,9 +36,13 @@ $(document).ready(function(){
         //  document.getElementById('savedTabs').innerHTML += '<p> added ' +  list[i].checked + " " + i + ' </p>';
        }
     }
-    var newGroup = new TabGroup(selectedList, "Test");
+    if(groupName == null){
+      groupName = selectedList[0];
+    }
+    var newGroup = new TabGroup(selectedList, groupName);
     for(i = 0; i<newGroup.tabList.length;i++){
-      document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
+    //  document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
+    document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.name + ' </p>';
     }
     });
 });
