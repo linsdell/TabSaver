@@ -33,6 +33,7 @@ $(document).ready(function(){
      for(i =0; i<list.length; i++){
         if(list[i].checked){
           selectedList.push(list[i].value);
+
         //  document.getElementById('savedTabs').innerHTML += '<p> added ' +  list[i].checked + " " + i + ' </p>';
        }
     }
@@ -40,9 +41,9 @@ $(document).ready(function(){
       groupName = selectedList[0];
     }
     var newGroup = new TabGroup(selectedList, groupName);
-    for(i = 0; i<newGroup.tabList.length;i++){
+    //for(i = 0; i<newGroup.tabList.length;i++){
     //  document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
-    document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.name + ' </p>';
-    }
+    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup()" href="#" id="newGroup.name">' +  newGroup.name + ' </a>'; 
+    //}
     });
 });

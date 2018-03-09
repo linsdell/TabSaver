@@ -13,12 +13,24 @@ body{
   background-color: #7a7a7a;
 }
 
-#button_wrapper{
+.button_wrapper{
   text-align: center;
   padding-top: 25px;
   padding-bottom: 10px;
 }
+#groupNameInput{
+  color: white;
+  font-size: 22px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 250px;
+}
 #tabs{
   padding-left: 0px;
   text-align: left;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
 }
