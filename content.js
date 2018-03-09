@@ -43,7 +43,12 @@ $(document).ready(function(){
     var newGroup = new TabGroup(selectedList, groupName);
     //for(i = 0; i<newGroup.tabList.length;i++){
     //  document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
-    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup()" href="#" id="newGroup.name">' +  newGroup.name + ' </a>'; 
+    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup(newGroup.name)" href="#" id="newGroup.name">' +  newGroup.name + ' </a>';
+    //document.getElementById('savedTabs').innerHTML += '<a href="https://www.w3schools.com" target="_blank">' +  newGroup.name + ' </a>';
     //}
     });
 });
+
+function openGroup(name) {
+    window.alert(name);
+}
