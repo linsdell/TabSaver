@@ -1,4 +1,4 @@
-class tabGroup{
+class TabGroup{
   constructor(tabList, name){
     this.tabList = tabList;
     this.name = name;
@@ -20,7 +20,7 @@ window.onload = function () {
   //document.getElementById('tabs').innerHTML = '';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
-          document.getElementById('tabList').innerHTML += '<li> <input class="tabSelect" type="checkbox" value="' + tabs[i].title + '">' + tabs[i].title + '</li>';
+          document.getElementById('tabList').innerHTML += '<li> <input class="tabSelect" type="checkbox" value="' + tabs[i].url + '">' + tabs[i].title + '</li>';
       }
   });
 }
@@ -35,8 +35,9 @@ $(document).ready(function(){
         //  document.getElementById('savedTabs').innerHTML += '<p> added ' +  list[i].checked + " " + i + ' </p>';
        }
     }
-    for(i = 0; i<selectedList.length;i++){
-      document.getElementById('savedTabs').innerHTML += '<p>' +  selectedList[i] + ' </p>';
+    var newGroup = new TabGroup(selectedList, "Test");
+    for(i = 0; i<newGroup.tabList.length;i++){
+      document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
     }
     });
 });
