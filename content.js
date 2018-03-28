@@ -16,7 +16,10 @@ chrome.runtime.onMessage.addListener(
 );
 
 window.onload = function () {
-
+  chrome.storage.local.get(null, function (items) {
+    document.getElementById('savedTabs').innerHTML += '<p>' + items.data.name  + ' </p>';
+    console.log(items);
+     });
   //document.getElementById('tabs').innerHTML = '';
   chrome.tabs.getAllInWindow(null, function(tabs){
       for (var i = 0; i < tabs.length; i++) {
@@ -40,12 +43,20 @@ $(document).ready(function(){
     if(groupName == null){
       groupName = selectedList[0];
     }
+
     var newGroup = new TabGroup(selectedList, groupName);
     //for(i = 0; i<newGroup.tabList.length;i++){
     //  document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
     document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup(newGroup.name)" href="#" id="newGroup.name">' +  newGroup.name + ' </a>';
     //document.getElementById('savedTabs').innerHTML += '<a href="https://www.w3schools.com" target="_blank">' +  newGroup.name + ' </a>';
     //}
+    var testData = {'name':newGroup.name,'data':newGroup.tabList}
+    var passedVal = {};
+    passedVal[newGroup.name] = testData;
+    chrome.storage.local.set(passedVal, function() {
+          // Notify that we saved.
+          message('Tabs saved');
+        });
     });
 });
 
