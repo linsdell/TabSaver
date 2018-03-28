@@ -17,8 +17,9 @@ chrome.runtime.onMessage.addListener(
 
 window.onload = function () {
   chrome.storage.local.get(null, function (items) {
-    document.getElementById('savedTabs').innerHTML += '<p>' + items.data.name  + ' </p>';
-    console.log(items);
+    for(i in items){
+    document.getElementById('savedTabs').innerHTML += '<p>' + i.data.name  + ' </p>';
+    console.log(i);}
      });
   //document.getElementById('tabs').innerHTML = '';
   chrome.tabs.getAllInWindow(null, function(tabs){
