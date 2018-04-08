@@ -19,7 +19,7 @@ window.onload = function () {
   chrome.storage.local.get(null, function (items) {
      //console.log(items);
     for (key in items) {
-     document.getElementById('savedTabs').innerHTML += '<p>' + items[key].name  + ' </p>';
+     document.getElementById('savedTabs').innerHTML += '<p onclick="openGroup('+ items[key].data + ')">' + items[key].name  + ' </p> ';
        console.log(items[key]);
      }
      });
@@ -50,7 +50,7 @@ $(document).ready(function(){
     var newGroup = new TabGroup(selectedList, groupName);
     //for(i = 0; i<newGroup.tabList.length;i++){
     //  document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
-    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup(' + newGroup.name + ')" href="#" id="' + newGroup.name+'">' +  newGroup.name + ' </a>';
+    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup(' + newGroup.data + ')" href="#" id="' + newGroup.name+'">' +  newGroup.name + ' </a>';
     //document.getElementById('savedTabs').innerHTML += '<a href="https://www.w3schools.com" target="_blank">' +  newGroup.name + ' </a>';
     //}
     var testData = {'name':newGroup.name,'data':newGroup.tabList}
@@ -68,8 +68,16 @@ $(document).ready(function(){
   //  });
 
     });
+
+
+    
 });
 
-function openGroup(name) {
-    window.alert(name);
+function openGroup(items) {
+    //console.log("clicked");
+    //chrome.storage.local.get(name, function (items) {
+      //for(link in items){
+      //  window.open(link, '_blank');
+    //  }
+    //});
 }
