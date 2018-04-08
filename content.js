@@ -55,16 +55,17 @@ $(document).ready(function(){
     //}
     var testData = {'name':newGroup.name,'data':newGroup.tabList}
     var passedVal = {};
-    chrome.storage.local.get("testData1", function (items) {
-    console.log("got testdata1");
-    console.log(items);
-    items[newGroup.name] = testData;
-    chrome.storage.local.set(items, function() {
+  //  chrome.storage.local.get("testData1", function (items) {
+  //  console.log("got testdata1");
+  //  console.log(items);
+    //items[newGroup.name] = testData;
+    passedVal[newGroup.name] = testData
+    chrome.storage.local.set(passedVal, function() {
             // Notify that we saved.
-            message('Tabs saved');
+          //message('Tabs saved');
           });
-      console.log(items);
-    });
+    //  console.log(items);
+  //  });
 
     });
 });
