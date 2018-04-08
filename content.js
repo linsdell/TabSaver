@@ -17,12 +17,10 @@ chrome.runtime.onMessage.addListener(
 
 window.onload = function () {
   chrome.storage.local.get(null, function (items) {
-
-    //
-
+     //console.log(items);
     for (key in items) {
-      document.getElementById('savedTabs').innerHTML += '<p>' + key.name  + ' </p>';
-       console.log(key.name);
+     document.getElementById('savedTabs').innerHTML += '<p>' + items[key].name  + ' </p>';
+       console.log(items[key]);
      }
      });
   //document.getElementById('tabs').innerHTML = '';
@@ -52,16 +50,22 @@ $(document).ready(function(){
     var newGroup = new TabGroup(selectedList, groupName);
     //for(i = 0; i<newGroup.tabList.length;i++){
     //  document.getElementById('savedTabs').innerHTML += '<p>' +  newGroup.tabList[i] + ' </p>';
-    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup(newGroup.name)" href="#" id="newGroup.name">' +  newGroup.name + ' </a>';
+    document.getElementById('savedTabs').innerHTML += '<a onclick="openGroup(' + newGroup.name + ')" href="#" id="' + newGroup.name+'">' +  newGroup.name + ' </a>';
     //document.getElementById('savedTabs').innerHTML += '<a href="https://www.w3schools.com" target="_blank">' +  newGroup.name + ' </a>';
     //}
     var testData = {'name':newGroup.name,'data':newGroup.tabList}
     var passedVal = {};
-    passedVal[newGroup.name] = testData;
-    chrome.storage.local.set(passedVal, function() {
-          // Notify that we saved.
-          message('Tabs saved');
-        });
+    chrome.storage.local.get("testData1", function (items) {
+    console.log("got testdata1");
+    console.log(items);
+    items[newGroup.name] = testData;
+    chrome.storage.local.set(items, function() {
+            // Notify that we saved.
+            message('Tabs saved');
+          });
+      console.log(items);
+    });
+
     });
 });
 
